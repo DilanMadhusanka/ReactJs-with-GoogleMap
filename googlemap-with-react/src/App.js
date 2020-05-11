@@ -12,14 +12,6 @@ class App extends React.Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
         </header>
         <Map google={this.props.google} zoom={14}>
 
@@ -36,5 +28,5 @@ class App extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: ("YOUR_GOOGLE_API_KEY_GOES_HERE")
+  apiKey: ("AIzaSyAzhmcwoYkqyq98uy4stoA_u3jatHUek6o")
 })(App)
