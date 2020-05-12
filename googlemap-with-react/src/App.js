@@ -13,13 +13,13 @@ class App extends React.Component {
             Edit <code>src/App.js</code> and save to reload.
           </p>
         </header>
-        <Map google={this.props.google} zoom={14}>
+        <Map google={this.props.google} zoom={14} initialCenter={{ lat: 6.927079, lng: 79.861244 }}>
 
           <Marker onClick={this.onMarkerClick}
             name={'Current location'} />
 
           <InfoWindow onClose={this.onInfoWindowClose}>
-            
+
           </InfoWindow>
         </Map>
       </div>
