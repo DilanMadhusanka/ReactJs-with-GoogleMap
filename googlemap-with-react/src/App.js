@@ -3,6 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
+
+const style = {
+  width: '50%',
+  height: '50%'
+}
+
 class App extends React.Component {
   render() {
     return (
@@ -13,7 +19,11 @@ class App extends React.Component {
             Edit <code>src/App.js</code> and save to reload.
           </p>
         </header>
-        <Map google={this.props.google} zoom={14} initialCenter={{ lat: 6.927079, lng: 79.861244 }}>
+        <Map google={this.props.google} zoom={14} initialCenter={{ lat: 6.927079, lng: 79.861244 }}
+        // containerStyle={containerStyle}
+        style={style}
+        centerAroundCurrentLocation={false}
+        >
 
           <Marker onClick={this.onMarkerClick}
             name={'Current location'} />
@@ -28,5 +38,5 @@ class App extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: ("AIzaSyAzhmcwoYkqyq98uy4stoA_u3jatHUek6o")
+  apiKey: ("AIzaSyBZMsaoXAt7JqaEV9suMQR_wVCt3QLCMoc")
 })(App)
