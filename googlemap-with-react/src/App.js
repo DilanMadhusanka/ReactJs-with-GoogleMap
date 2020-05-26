@@ -1,30 +1,26 @@
 import React from 'react';
-// ES6
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 
-const Map = ReactMapboxGl({
-  accessToken:
-    'pk.eyJ1IjoiZGlsei1tYXBib3giLCJhIjoiY2thbmVkYW9zMDJ1bzJ1cW4wOGMzaTBmbCJ9.fFVVCkpjc6-R1i_8jPmB3g'
-});
+const mapStyles = {
+  width: '100%',
+  height: '100%'
+};
 
-class App extends React.Component {
+class MapContainer extends React.Component {
   render() {
     return (
       <div className="App">
         <Map
-          style="mapbox://styles/mapbox/streets-v9"
-          containerStyle={{
-            height: '100vh',
-            width: '100vw'
-          }}
-        >
-          <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
-            <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
-          </Layer>
-        </Map>
+          google={this.props.google}
+          zoom={8}
+          style={mapStyles}
+          initialCenter={{ lat: 6.927079, lng: 79.861244 }}
+        />
       </div>
     );
   }
 }
 
-export default App
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyAzhmcwoYkqyq98uy4stoA_u3jatHUek6o'
+})(MapContainer);
