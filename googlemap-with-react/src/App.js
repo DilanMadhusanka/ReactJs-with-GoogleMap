@@ -1,5 +1,5 @@
 import React from 'react';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 
 const mapStyles = {
   width: '100%',
@@ -38,7 +38,21 @@ class MapContainer extends React.Component {
           zoom={8}
           style={mapStyles}
           initialCenter={{ lat: 6.927079, lng: 79.861244 }}
-        />
+        >
+          <Marker
+            onClick={this.onMarkerClick}
+            name={'Sri Lanka'}
+          />
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}
+            onClose={this.onClose}
+          >
+            <div>
+              <h4>{this.state.selectedPlace.name}</h4>
+            </div>
+          </InfoWindow>
+        </Map>
       </div>
     );
   }
