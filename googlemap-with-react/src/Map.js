@@ -80,6 +80,21 @@ export class CurrentLocation extends React.Component {
         }
     }
 
+    renderChildren() {
+        const { children } = this.props;
+
+        if (!children) return;
+
+        return React.Children.map(children, c => {
+            if (!c) return;
+            return React.cloneElement(c, {
+                map: this.map,
+                google: this.props.google,
+                mapCenter: this.state.currentLocation
+            });
+        });
+    }
+
     render() {
         return (
             <div></div>
