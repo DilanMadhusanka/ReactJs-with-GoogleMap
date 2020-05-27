@@ -1,11 +1,21 @@
 import React from 'react';
 
-class CurrentLocation extends React.Component {
+export class CurrentLocation extends React.Component {
     render() {
-        return(
+        return (
             <div></div>
         );
     }
 }
 
 export default CurrentLocation;
+
+CurrentLocation.defaultProps = {
+    zoom: 14,
+    initialCenter: {
+        lat: -1.2884,
+        lng: 36.8233
+    },
+    centerAroundCurrentLocation: false,
+    visible: true
+};
